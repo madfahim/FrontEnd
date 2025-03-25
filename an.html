@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Card Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: hsl(210, 46%, 95%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            max-width: 730px;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .article-image {
+            width: 280px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 32px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .article-title {
+            color: hsl(217, 19%, 35%);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .article-excerpt {
+            color: hsl(214, 17%, 51%);
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .article-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 16px;
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            color: hsl(217, 19%, 35%);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .publish-date {
+            color: hsl(212, 23%, 69%);
+            font-size: 13px;
+        }
+
+        .share-button {
+            background-color: hsl(210, 46%, 95%);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+        }
+
+        .share-button svg {
+            fill: hsl(214, 17%, 51%);
+        }
+
+        .share-button:hover {
+            background-color: hsl(214, 17%, 51%);
+        }
+
+        .share-button:hover svg {
+            fill: white;
+        }
+
+        .social-share {
+            display: none;
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            background-color: hsl(217, 19%, 35%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            align-items: center;
+            gap: 16px;
+            z-index: 20;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .social-share.active {
+            display: flex;
+        }
+
+        .social-share::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 20px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid hsl(217, 19%, 35%);
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .social-icons span {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: hsl(212, 23%, 69%);
+            font-size: 13px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+        }
+
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .article-card {
+                flex-direction: column;
+                max-width: 375px;
+            }
+
+            .article-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .article-content {
+                padding: 24px;
+            }
+
+            .social-share {
+                bottom: -80px;
+                left: 0;
+                right: 0;
+                margin: 0 24px;
+                padding: 20px;
+            }
+
+            .social-share::after {
+                left: 50%;
+                transform: translateX(-50%);
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-card">
+        <img src="drawers.jpg" alt="Green dresser with decor" class="article-image">
+        <div class="article-content">
+            <div>
+                <h1 class="article-title">
+                    Shift the overall look and feel by adding these wonderful touches to furniture in your home
+                </h1>
+                <p class="article-excerpt">
+                    Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.
+                </p>
+            </div>
+            <div class="article-footer">
+                <div class="author-info">
+                    <img src="avatar-michelle.jpg" alt="Michelle Appleton" class="author-avatar">
+                    <div class="author-details">
+                        <span class="author-name">Michelle Appleton</span>
+                        <span class="publish-date">28 Jun 2020</span>
+                    </div>
+                </div>
+                <button class="share-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13">
+                        <path d="M15 6.495L8.766.023V3.97H7.146c-3.396 0-6.114 2.133-6.892 5.405 1.156-.392 2.685.036 3.598.938l1.078 1.048v-1.305c0-1.723 1.57-3.132 3.418-3.132h2.684v3.947L15 6.495z"/>
+                    </svg>
+                </button>
+                <div class="social-share">
+                    <span>S H A R E</span>
+                    <div class="social-icons">
+                        <a href="#" class="facebook">
+                            <img src="icon-facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="twitter">
+                            <img src="icon-twitter.svg" alt="Twitter">
+                        </a>
+                        <a href="#" class="pinterest">
+                            <img src="icon-pinterest.svg" alt="Pinterest">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.share-button').addEventListener('click', function() {
+            const socialShare = document.querySelector('.social-share');
+            socialShare.classList.toggle('active');
+        });
+
+        // Close social share when clicking outside
+        document.addEventListener('click', function(event) {
+            const socialShare = document.querySelector('.social-share');
+            const shareButton = document.querySelector('.share-button');
+            
+            if (!socialShare.contains(event.target) && 
+                !shareButton.contains(event.target) && 
+                socialShare.classList.contains('active')) {
+                socialShare.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
